@@ -10,9 +10,10 @@ profile_minio::config_default:
 profile_minio::data_path: '/srv/minio'
 profile_minio::data_device: '/dev/vdb'
 profile_minio::manage_firewall_entry: true
-profile_minio::manage_sd_service: false
+profile_minio::manage_sd_service: true
 profile_minio::listen_address: "%{facts.networking.ip}"
 profile_minio::port: 9090
 profile_minio::sd_service_name: 'minio'
 profile_minio::sd_service_tags: []
+profile_minio::minio_backup: true
 ...

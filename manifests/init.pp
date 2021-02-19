@@ -14,6 +14,7 @@ class profile_minio (
   Stdlib::Port::Unprivileged $port,
   String                     $sd_service_name,
   Array                      $sd_service_tags,
+  Boolean                    $minio_backup
 ) {
   $_config = deep_merge($config_default, $config)
 
@@ -51,5 +52,9 @@ class profile_minio (
       port   => $port,
       tags   => $sd_service_tags,
     }
+  }
+
+  if $minio_backup {
+    include profile_minio::backup
   }
 }
