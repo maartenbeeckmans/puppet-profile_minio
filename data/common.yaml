@@ -1,16 +1,15 @@
 ---
-profile_minio::checksum: '416890f951012c482eb75f6fc09db778708578dd3914b9a63ba89054344053be'
-profile_minio::version: 'RELEASE.2021-01-16T02-19-44Z'
+profile_minio::checksum: 'a435256a8ab67fe3ca2d56e7676ddba5479b7bdf7bdb544652aae393f5953f76'
+profile_minio::version: 'RELEASE.2021-05-11T23-27-41Z'
 profile_minio::config: {}
 profile_minio::config_default:
   MINIO_ACCESS_KEY: 'admin'
   MINIO_SECRET_KEY: 'changeme'
   MINIO_REGION_NAME: 'europe'
   MINIO_BROWSER: 'on'
-profile_minio::data_path: '/srv/minio'
+profile_minio::data_path: '/var/minio'
 profile_minio::data_device: '/dev/vdb'
 profile_minio::manage_firewall_entry: true
-profile_minio::manage_sd_service: true
 profile_minio::listen_address: "%{facts.networking.ip}"
 profile_minio::port: 9090
 profile_minio::sd_service_name: 'minio'

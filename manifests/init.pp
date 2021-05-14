@@ -9,12 +9,12 @@ class profile_minio (
   Stdlib::Absolutepath       $data_path,
   Stdlib::Absolutepath       $data_device,
   Boolean                    $manage_firewall_entry,
-  Boolean                    $manage_sd_service,
   Stdlib::Host               $listen_address,
   Stdlib::Port::Unprivileged $port,
   String                     $sd_service_name,
   Array                      $sd_service_tags,
-  Boolean                    $minio_backup
+  Boolean                    $minio_backup,
+  Boolean                    $manage_sd_service            = lookup('manage_sd_service', Boolean, first, true),
 ) {
   $_config = deep_merge($config_default, $config)
 
@@ -34,7 +34,7 @@ class profile_minio (
   }
 
   if $manage_firewall_entry {
-    firewall { "0${port} accept choria":
+    firewall { "0${port} accept minio":
       dport  => $port,
       proto  => 'tcp',
       action => 'accept',
